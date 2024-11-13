@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import "./BookCollectionManager.css"
+import "./BookCollectionManager.css";
+import Book from "./Book";
 
 function BookCollectionManager() {
   const [books, setBooks] = useState([]);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
+  const [year, setYear] = useState("");
 
   // Handle input change for title
   function handleTitleChange(event) {
@@ -16,18 +18,24 @@ function BookCollectionManager() {
     setAuthor(event.target.value);
   }
 
+  // Handle input change for year
+  function handleYearChange(event) {
+    setYear(event.target.value);
+  }
+
   // Add a new book to the list
   function addBook() {
-    if (title.trim() !== "" && author.trim() !== "") {
-      setBooks((b) => [...b, { title, author }]);
+    if (title.trim() !== "" && author.trim() !== "" && year.trim() !== "") {
+      setBooks((b) => [...b, { title, author, year }]);
       setTitle("");
-      setAuthor(""); // Clear the input fields
+      setAuthor("");
+      setYear(""); // Clear the input fields
     }
   }
 
   // Delete a book from the list
-  function deleteBook(index) {
-    const updatedBooks = books.filter((_, i) => i !== index);
+  function deleteBook(title) {
+    const updatedBooks = books.filter((book) => book.title !== title);
     setBooks(updatedBooks);
   }
 
@@ -47,15 +55,18 @@ function BookCollectionManager() {
           value={author}
           onChange={handleAuthorChange}
         />
+        <input
+          type="number"
+          placeholder="Enter year..."
+          value={year}
+          onChange={handleYearChange}
+        />
         <button onClick={addBook}>Add Book</button>
       </div>
       <ol>
-        {books.map((book, index) => (
-          <li key={index}>
-            {book.title} by {book.author}
-            <button onClick={() => deleteBook(index)}>Delete</button>
-          </li>
-        ))}
+        {books.map((book) => {
+          return <Book {...book} key={book.title} onDelete={deleteBook} />
+        })}
       </ol>
     </div>
   );
