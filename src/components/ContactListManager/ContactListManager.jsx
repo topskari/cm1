@@ -35,7 +35,7 @@ function ContactListManager() {
   // Add a new contact to the list
   function addContact() {
     if (name.trim() !== "" && email.trim() !== "" && phone.trim() !== "") {
-      setContacts((b) => [...b, { name, email, phone }]);
+      setContacts((prevContacts) => [...prevContacts, { name, email, phone }]);
       setName("");
       setEmail("");
       setPhone("");
@@ -62,14 +62,14 @@ function ContactListManager() {
         />
         <input
           type="text"
-          placeholder="Enter contact email ..."
+          placeholder="Enter contact email..."
           value={email}
           onChange={handleEmailChange}
           maxLength={20}
         />
         <input
           type="text"
-          placeholder="Enter contact phone ..."
+          placeholder="Enter contact phone..."
           value={phone}
           onChange={handlePhoneChange}
           maxLength={20}
