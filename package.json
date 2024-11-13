@@ -1,10 +1,13 @@
 {
-  "name": "react-lists-lab1",
+  "homepage": "https://topskari.github.io/cm1/",
+  "name": "cm1",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
