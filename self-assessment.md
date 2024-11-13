@@ -139,4 +139,4 @@ export default Contact;
 - The `Contact` component is simple and effectively displays the contact information.
 - The use of destructuring for props makes the code cleaner and more readable.
 
-Copilot was used to generate most of this content.
+Copilot was used to generate most of this assessment.
