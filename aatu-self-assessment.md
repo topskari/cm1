@@ -1,3 +1,10 @@
+# Aatu Self-Assessment of Code
+
+
+## SignupPage.jsx
+
+```js
+// Signup.jsx - State Initialization and input handlers
 import React from 'react'
 import { useState } from 'react'
 
@@ -37,7 +44,7 @@ function SignupPage() {
       setEmailMessage("");
     }
   }
-
+  
   function evaluatePasswordStrength(password) {
     let strength = "Weak";
     if (password.length >= 8) {
@@ -71,9 +78,17 @@ function SignupPage() {
     console.log("Greetings: ", greeting);
     return greeting;
   }
-    
+  // Continues...
+```
 
-  return (
+**Assessment**: 
+- The state initialization and input handlers are well-structured and follow React best practices.
+- Email validation method ensures that only valid emails can be entered, and the password strength checker notifies the user regarding the strength of their password, but doesnt restrict the usage of weak passwords for the sake of user agency
+- The greetingMessage function displays to the user a greeting in the correct language based on the nationality that they have chosen
+
+```js
+// SignupPage.jsx Render Method
+return (
     <div class="flex items-center justify-center min-h-screen bg-rose-50">
       {/* <!-- Card Container --> */}
       <div
@@ -158,3 +173,11 @@ function SignupPage() {
 }
 
 export default SignupPage
+
+```
+
+**Assessment**: 
+- The return statement is well-structured and clearly lays out the components and their relationships.
+- The input fields are correctly bound to the state and have appropriate attributes for validation
+- The user is given immediate visual feedback when their input is invalid
+- The interface is easy to read and responsive
