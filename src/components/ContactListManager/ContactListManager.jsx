@@ -8,7 +8,7 @@ function ContactListManager() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
-  // Handle input change for name
+  // Handle input change for name and validate input
   function handleNameChange(event) {
     const value = event.target.value;
     if (/^[a-zA-Z\s]*$/.test(value)) {
@@ -16,7 +16,7 @@ function ContactListManager() {
     }
   }
 
-  // Handle input change for email
+  // Handle input change for email and validate input
   function handleEmailChange(event) {
     const value = event.target.value;
     if (/^[a-zA-Z0-9._%+-@]*$/.test(value)) {
@@ -24,7 +24,7 @@ function ContactListManager() {
     }
   }
 
-  // Handle input change for phone
+  // Handle input change for phone and validate input
   function handlePhoneChange(event) {
     const value = event.target.value;
     if (/^\d*$/.test(value)) {
