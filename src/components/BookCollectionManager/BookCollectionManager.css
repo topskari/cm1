@@ -45,8 +45,9 @@
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    font-weight: bold;
+    justify-content: space-between;
   }
   
   .book-collection li button {
@@ -60,4 +61,3 @@
   .book-collection li button:hover {
     background-color: #c0392b;
   }
-  
